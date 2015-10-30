@@ -81,18 +81,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.appointments) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -105,7 +95,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void firstAidTips(View view) {
-        startActivity(new Intent(this, FirstaidTips.class));
+        startActivity(new Intent(this, FirstAidTips.class));
     }
 
     public void cprActivity(View view) {
