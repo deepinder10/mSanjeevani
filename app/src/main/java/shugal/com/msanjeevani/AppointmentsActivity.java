@@ -1,5 +1,6 @@
 package shugal.com.msanjeevani;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,5 +23,9 @@ public class AppointmentsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Appointments");
 
+    }
+
+    public void addApointment(View view) {
+        startActivity(new Intent(this, AddAppointment.class));
     }
 }

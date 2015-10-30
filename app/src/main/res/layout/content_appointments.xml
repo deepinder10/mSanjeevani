@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:text="Book an Appointment"
+        android:onClick="addApointment"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
 
