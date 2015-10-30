@@ -41,6 +41,21 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+        //createDummyDatabase();
+    }
+
+    private void createDummyDatabase() {
+
+        AppointmentData data = new AppointmentData("1", 1, "a", "a", "a", "a", "a");
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        db.addAppointment(data);
+
+        db.deleteFirstValues();
+        db.close();
     }
 
     @Override

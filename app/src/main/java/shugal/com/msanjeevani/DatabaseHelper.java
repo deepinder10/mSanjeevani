@@ -174,11 +174,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(TABLE_APPOINTMENTS, KEY_ID + " = ?",
                 new String[]{String.valueOf(1)});
 
-        db.delete(TABLE_DOCTORS, KEY_ID + " = ?",
+       /* db.delete(TABLE_DOCTORS, KEY_ID + " = ?",
                 new String[]{String.valueOf(1)});
 
         db.delete(TABLE_HOSPITALS, KEY_ID + " = ?",
-                new String[]{String.valueOf(1)});
+                new String[]{String.valueOf(1)});*/
         db.close();
     }
 }
