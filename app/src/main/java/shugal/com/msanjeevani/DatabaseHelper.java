@@ -71,13 +71,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(query);
 
-        query = "create table if not exists " + TABLE_APPOINTMENTS + "(" +
+        /*query = "create table if not exists " + TABLE_APPOINTMENTS + "(" +
                 KEY_ID + " integer primary key autoincrement, " +
                 KEY_HOSPITAL + " string, " +
                 KEY_ADDRESS + " string, " +
                 KEY_PHONE + " string);";
 
-        db.execSQL(query);
+        db.execSQL(query);*/
 
         db.close();
     }
