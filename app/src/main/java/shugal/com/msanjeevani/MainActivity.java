@@ -1,5 +1,6 @@
 package shugal.com.msanjeevani;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -97,5 +98,21 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void firstAidActivity(View view) {
+        startActivity(new Intent(this, FirstaidActivity.class));
+    }
+
+    public void firstAidTips(View view) {
+        startActivity(new Intent(this, FirstaidTips.class));
+    }
+
+    public void cprActivity(View view) {
+        startActivity(new Intent(this, CPRactivity.class));
+    }
+
+    public void hospitalList(View view) {
+        startActivity(new Intent(this, HospitalListActivity.class));
     }
 }
