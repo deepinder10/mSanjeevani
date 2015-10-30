@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hospital_array">
+        <item>Fortis</item>
+        <item>Max Hospital</item>
+        <item>PGI</item>
+        <item>GMCH Sector 32</item>
+        <item>Mukat Hospital</item>
+        <item>Grewal Eye Institute</item>
+    </string-array>
+</resources>

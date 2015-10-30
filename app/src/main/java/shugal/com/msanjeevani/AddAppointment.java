@@ -1,8 +1,11 @@
 package shugal.com.msanjeevani;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,9 +17,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -28,10 +34,11 @@ public class AddAppointment extends AppCompatActivity {
     TextInputLayout nameLayout, ageLayout, dateLayout, timeLayout;
     EditText nameTxt, ageTxt, dateTxt, timeTxt;
     Spinner hospitalSpinner, doctorSpinner;
+    RadioButton male, female;
 
     final int TIME_DIALOG = 0, DATE_DIALOG = 1;
 
-
+    AppointmentData data = new AppointmentData();
     Calendar calender = Calendar.getInstance();
     //String date = "";
 
@@ -63,6 +70,40 @@ public class AddAppointment extends AppCompatActivity {
         dateTxt.addTextChangedListener(new MyTextWatcher(dateTxt));
         timeTxt.addTextChangedListener(new MyTextWatcher(timeTxt));
 
+        fillSpinners();
+    }
+
+    private void fillSpinners() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.hospital_array, android.R.layout.simple_spinner_dropdown_item);
+        hospitalSpinner.setAdapter(adapter);
+        hospitalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+                data.setHospital(item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        doctorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+                data.setDoctor(item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public void launchDatePicker(View view) {
@@ -90,6 +131,16 @@ public class AddAppointment extends AppCompatActivity {
             return;
         }
 
+        data.setPatient_name(nameTxt.getText().toString());
+        data.setAge(Integer.parseInt(ageTxt.getText().toString()));
+        data.setDate(dateTxt.getText().toString());
+        data.setTime(timeTxt.getText().toString());
+
+        if (male.isChecked()) {
+            data.setGender("Male");
+        } else if (female.isChecked()) {
+            data.setGender("Female");
+        }
         //DatabaseHelper db = new DatabaseHelper(this);
         //data.setLecture_number(Integer.parseInt(lectureNumber.getText().toString()));
         //db.addTimetableSlot(data);
@@ -153,7 +204,28 @@ public class AddAppointment extends AppCompatActivity {
     }
 
     private void launchStatusDialog() {
-        Toast.makeText(getApplicationContext(), "HHH", Toast.LENGTH_SHORT).show();
+        final Context context = this;
+
+        final AlertDialog.Builder customEventDialog = new AlertDialog.Builder(context);
+
+        customEventDialog.setTitle("Delete Everything ?");
+        customEventDialog.setCancelable(true);
+
+        customEventDialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //startActivity(new Intent(getApplicationContext(), ));
+                Toast.makeText(context, "Go to application list", Toast.LENGTH_SHORT).show();
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+
+        customEventDialog.create().show();
     }
 
     private boolean validateTime() {
