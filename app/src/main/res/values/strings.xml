@@ -9,4 +9,6 @@
     <string name="title_activity_firstaid">FirstaidActivity</string>
     <string name="title_activity_first_aid_tips">FirstAidTips</string>
     <string name="title_activity_hospital_list">HospitalListActivity</string>
+    <string name="title_activity_activity_appointments">activity_appointments</string>
+    <string name="title_activity_appointments">appointments</string>
 </resources>
