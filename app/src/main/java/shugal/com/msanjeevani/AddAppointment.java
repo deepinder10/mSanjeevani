@@ -30,7 +30,7 @@ public class AddAppointment extends AppCompatActivity {
     Spinner hospitalSpinner, doctorSpinner;
 
     final int TIME_DIALOG = 0, DATE_DIALOG = 1;
-    
+
 
     Calendar calender = Calendar.getInstance();
     //String date = "";
