@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="labs_array">
+        <item>Dr Lal PathLabs</item>
+        <item>Preet Clinical Laboratory</item>
+        <item>Srl Diagnostics</item>
+        <item>Malhotra Medical Laboratories</item>
+        <item>Sardana Labs</item>
+        <item>Apollo Labs</item>
+    </string-array>
+</resources>

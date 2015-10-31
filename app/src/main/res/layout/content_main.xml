@@ -83,7 +83,7 @@
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
-           android:src="@drawable/fabx128"
+           android:src="@drawable/cpr"
             android:onClick="cprActivity"
             android:textStyle="italic|bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"

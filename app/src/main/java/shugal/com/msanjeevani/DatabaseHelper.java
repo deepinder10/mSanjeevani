@@ -45,6 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //SAMPLE DATABASE
     private static final String KEY_SAMPLE = "sample";
+    private static final String KEY_LAB = "lab";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -77,6 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_AGE + " int, " +
                 KEY_GENDER + " string, " +
                 KEY_SAMPLE + " string, " +
+                KEY_LAB + " string, " +
                 KEY_DATE + " string, " +
                 KEY_TIME + " string);";
 
@@ -197,6 +199,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_AGE, data.getAge());
         values.put(KEY_GENDER, data.getGender());
         values.put(KEY_SAMPLE, data.getSample());
+        values.put(KEY_LAB, data.getSample());
         values.put(KEY_DATE, data.getDate());
         values.put(KEY_TIME, data.getTime());
         db.insert(TABLE_SAMPLE, null, values);
@@ -233,8 +236,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 data.setAge(Integer.parseInt(cursor.getString(2)));
                 data.setGender(cursor.getString(3));
                 data.setSample(cursor.getString(4));
-                data.setDate(cursor.getString(5));
-                data.setTime(cursor.getString(6));
+                data.setLab(cursor.getString(5));
+                data.setDate(cursor.getString(6));
+                data.setTime(cursor.getString(7));
                 tdata.add(data);
             } while (cursor.moveToNext());
         }

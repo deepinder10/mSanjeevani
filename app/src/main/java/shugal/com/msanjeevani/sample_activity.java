@@ -24,16 +24,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class sample_activity extends AppCompatActivity {
 
     TextInputLayout nameLayout, ageLayout, dateLayout, timeLayout;
     EditText nameTxt, ageTxt, dateTxt, timeTxt;
-    Spinner sampleSpinner;
+    Spinner sampleSpinner, labSpinner;
     RadioButton male, female;
 
     final int TIME_DIALOG = 0, DATE_DIALOG = 1;
@@ -61,6 +59,7 @@ public class sample_activity extends AppCompatActivity {
         timeTxt = (EditText) findViewById(R.id.timeTxt);
 
         sampleSpinner = (Spinner) findViewById(R.id.hospitalSpinner);
+        labSpinner = (Spinner) findViewById(R.id.labSpinner);
 
         nameTxt.addTextChangedListener(new MyTextWatcher(nameTxt));
         ageTxt.addTextChangedListener(new MyTextWatcher(ageTxt));
@@ -82,6 +81,22 @@ public class sample_activity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
                 data.setSample(item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        adapter = ArrayAdapter.createFromResource(this,
+                R.array.labs_array, android.R.layout.simple_spinner_dropdown_item);
+        labSpinner.setAdapter(adapter);
+        labSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                data.setLab(item);
             }
 
             @Override
@@ -285,7 +300,6 @@ public class sample_activity extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
             String message = makeDate(dayOfMonth, (monthOfYear+1), year);
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             dateTxt.setText(message);
 
         }
@@ -295,7 +309,6 @@ public class sample_activity extends AppCompatActivity {
             new TimePickerDialog.OnTimeSetListener() {
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                     String message = pad(hourOfDay) + ":" + pad(minute);
-                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                     timeTxt.setText(message);
                 }
             };

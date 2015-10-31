@@ -32,11 +32,21 @@ public class SampleListAdapter extends ArrayAdapter<SampleData> {
         TextView doctor = (TextView) convertView.findViewById(R.id.doctor);
         TextView status = (TextView) convertView.findViewById(R.id.status);
 
+        TextView bloodGroup = (TextView) convertView.findViewById(R.id.bloodGroup);
+        TextView platelet = (TextView) convertView.findViewById(R.id.platelet);
+        TextView rbc = (TextView) convertView.findViewById(R.id.rbc);
+        TextView wbc = (TextView) convertView.findViewById(R.id.wbc);
+
 
 
         name.setText(data.getPatient_name());
         doctor.setText("Sample Type: " + data.getSample());
         status.setText("Date: "+data.getDate());
+        bloodGroup.setText("Bloodgroup: O+ve");
+        platelet.setText("Platelet: 175k");
+        rbc.setText("RBC: 5.2 Milllion");
+        wbc.setText("WBC: 4300 cells/cubic ml");
+
 
         return convertView;
 

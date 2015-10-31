@@ -10,6 +10,7 @@ public class SampleData {
     private int age;
     private String gender;
     private String sample;
+    private String lab;
     private String date;
     private String time;
 
@@ -85,5 +86,13 @@ public class SampleData {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getLab() {
+        return lab;
+    }
+
+    public void setLab(String lab) {
+        this.lab = lab;
     }
 }
