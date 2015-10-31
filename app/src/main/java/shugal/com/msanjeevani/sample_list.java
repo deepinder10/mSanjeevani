@@ -22,7 +22,7 @@ public class sample_list extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("List of Samples");
+        getSupportActionBar().setTitle("Sample Reports");
 
         lectureList = (ListView) findViewById(R.id.list_of_lectures);
        printLectures();

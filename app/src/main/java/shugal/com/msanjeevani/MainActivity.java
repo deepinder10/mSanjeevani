@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, sample_activity.class));
         } else if (id == R.id.sampleList) {
             startActivity(new Intent(this, sample_list.class));
+        } else if (id == R.id.mediList) {
+            startActivity(new Intent(this, emailMedicine.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

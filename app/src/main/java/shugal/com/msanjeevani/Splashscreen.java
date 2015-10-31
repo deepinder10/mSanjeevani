@@ -70,8 +70,28 @@ public class Splashscreen extends AppCompatActivity {
 
         DoctorData datas0 = new DoctorData("Dr Aman", "Fortis");
         db.addDoctor(datas0);
-
-
+        DoctorData datas1 = new DoctorData("Dr Agarwal", "Fortis");
+        db.addDoctor(datas0);
+        DoctorData datas2 = new DoctorData("Dr Kumar", "Max Hospital");
+        db.addDoctor(datas2);
+        DoctorData datas3 = new DoctorData("Dr Agarwal", "Max Hospital");
+        db.addDoctor(datas3);
+        DoctorData datas4 = new DoctorData("Dr Geeta", "PGI");
+        db.addDoctor(datas4);
+        DoctorData datas5 = new DoctorData("Dr Vishwas", "PGI");
+        db.addDoctor(datas5);
+        DoctorData datas6 = new DoctorData("Dr Verma", "GMCH Sector 32");
+        db.addDoctor(datas6);
+        DoctorData datas7 = new DoctorData("Dr Vaishali", "GMCH Sector 32");
+        db.addDoctor(datas7);
+        DoctorData datas8 = new DoctorData("Dr Gupta", "Mukat Hospital");
+        db.addDoctor(datas8);
+        DoctorData datas9 = new DoctorData("Dr Vishal", "Mukat Hospital");
+        db.addDoctor(datas9);
+        DoctorData datas10 = new DoctorData("Dr Rohit", "Grewal Eye Institute");
+        db.addDoctor(datas10);
+        DoctorData datas11 = new DoctorData("Dr Shekhar", "Grewal Eye Institute");
+        db.addDoctor(datas11);
 
         AppointmentData data = new AppointmentData("kk", 9, "k", "k", "k", "k", "k");
         db.addAppointment(data);
