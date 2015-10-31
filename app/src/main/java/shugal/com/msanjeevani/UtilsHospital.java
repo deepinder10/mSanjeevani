@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author Yalantis
  */
-public class Utils {
+public class UtilsHospital {
     public static final List<Friend> friends = new ArrayList<>();
 
     static {

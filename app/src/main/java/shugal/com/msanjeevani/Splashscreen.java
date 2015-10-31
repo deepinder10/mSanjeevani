@@ -52,7 +52,7 @@ public class Splashscreen extends AppCompatActivity {
 
                 if (isFirstTime()) {
                     createDatabases();
-                    Intent firstInputs = new Intent(Splashscreen.this, MainActivity.class);
+                    Intent firstInputs = new Intent(Splashscreen.this, Greetings.class);
                     startActivity(firstInputs);
                 } else {
                     Intent proceedToMain = new Intent(Splashscreen.this, MainActivity.class);

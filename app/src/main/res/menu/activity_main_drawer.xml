@@ -28,6 +28,11 @@
             android:icon="@drawable/order"
             android:title="Order Medicine" />
 
+        <item
+            android:id="@+id/bmi"
+            android:icon="@drawable/a3"
+            android:title="Calculate BMI" />
+
 
     </group>
 

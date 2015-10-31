@@ -17,4 +17,33 @@
     <string name="title_activity_appointment_list">AppointmentList</string>
     <string name="title_activity_sample_activity">sample_activity</string>
     <string name="title_activity_sample_list">sample_list</string>
+    <string name="title_activity_general_instructions">GeneralInstructions</string>
+    <string name="generalIns">The First Aid box should be a water resistant, leak proof, air tight and
+        drop resistant container
+    , with numerous compartments for separating medicines etc.</string>
+    <string name="generalIns2">Know what all medications are in box and how to use it.</string>
+    <string name="generalIns3">Train others,even kids in your family to use the kit.
+    You may be the one who needs first aid.</string>
+    <string name="generalIns4">The best place to keep your aid kit is the kitchen. The bathroom has too
+    much humidity, which sometimes shortens the shelf life of items.</string>
+    <string name="title_activity_aid_box_items">AidBoxItems</string>
+    <string name="title_activity_one_click_help">OneClickHelp</string>
+    <string name="generalCpr">CPR may be necessary for an adult or children during many different emergencies
+    , including accidents, near drowning, suffocation, poisoning, smoke inhalation, electrocution injuries, and suspected
+    Sudden Infant Death Syndrome (SIDS).</string>
+    <string name="generalCpr2">It should only be performed when a person is not breathing or circulating
+        blood adequately.</string>
+    <string name="generalCpr3">After CPR , You find an obvious sign of life, e.g.breathing.</string>
+    <string name="generalTips">ANIMAL BITES - Apply direct pressure until bleeding stops.
+    Gently clean with with soap / antiseptic liquid and warm water. Rinse for several minutes after cleaning.
+    Apply antibiotic cream to reduce risk of infection, and cover with a sterile bandage.</string>
+    <string name="generalTips1">BROKEN BONE - If the injury and pain is serious then call the ambulance
+        or doctor at once. Do not move the broken bone unnecessarily. Place soft padding (clothing, blankets
+        etc.). Continue support until help arrives.</string>
+    <string name="generalTips3">BURNS - Cool the burn under cool running water for at least 10 minutes.
+        The faster and longer a burn is cooled, the less the impact of the injury. If the burn require further
+    require care, try to cover it (e.g. with plastic wrap or cover or any ideal covering which does not
+    stick to the burn). This will prevent infection by keeping the area clean.</string>
+    <string name="title_activity_info">InfoActivity</string>
+
 </resources>

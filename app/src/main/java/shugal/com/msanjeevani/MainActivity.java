@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this,InfoActivity.class));
+
             }
         });
 
@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, sample_list.class));
         } else if (id == R.id.mediList) {
             startActivity(new Intent(this, emailMedicine.class));
+        } else if (id == R.id.bmi) {
+            startActivity(new Intent(this,Bmi_index.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -100,4 +102,9 @@ public class MainActivity extends AppCompatActivity
     public void bmiActivity(View view) {
         startActivity(new Intent(this,Bmi_index.class));
     }
+
+    public void OneClickHelpline(View view) {
+        startActivity(new Intent(this,OneClickHelp.class));
+    }
+
 }

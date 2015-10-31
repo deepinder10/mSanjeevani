@@ -5,7 +5,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Bmi_index extends AppCompatActivity {
 
@@ -48,21 +46,22 @@ public class Bmi_index extends AppCompatActivity {
             public void onClick(View view) {
                 submitForm();
 
-                resultBmi = weight/((height*height)/10000) ;
-
-                if(resultBmi < 18.50)
+                resultBmi = weight / ((height * height) / 10000);
+                Log.d("bmi", "bmi" + resultBmi);
+                if (resultBmi < 18.50)
                     resultText = "Underweight";
-                if(resultBmi > 18.50 && resultBmi < 24.99);
-                resultText = "Healthy";
-                if(resultBmi >= 25.00 && resultBmi < 29.99)
+                if (resultBmi > 18.50 && resultBmi < 24.99)
+                    resultText = "Healthy";
+                if (resultBmi >= 25.00 && resultBmi < 29.99)
                     resultText = "Overweight";
-                if(resultBmi >= 30.00)
+                if (resultBmi >= 30.00)
                     resultText = "Obese";
 
                 result.setText(resultText);
 
             }
         });
+
     }
 
     /**
