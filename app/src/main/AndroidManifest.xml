@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -120,6 +123,21 @@
             android:label="@string/title_activity_info"
             android:theme="@style/AppTheme" >
         </activity>
+
+        <receiver android:name=".SampleAlarmReceiver" />
+        <receiver
+            android:name=".SampleBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".SampleSchedulingService" />
+
+        <activity android:name=".Greetings"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splashscreen_theme" />
 
     </application>
 
