@@ -85,14 +85,13 @@ public class AddAppointment extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
 
                 DatabaseHelper db = new DatabaseHelper(getApplicationContext());
 
                 ArrayList<String> doctorNames = db.doctorByHospital(item);
 
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(),
-                        android.R.layout.simple_spinner_dropdown_item, doctorNames);
+                        R.layout.list_layout,doctorNames);
                 doctorSpinner.setAdapter(arrayAdapter);
                 data.setHospital(item);
                 db.close();
@@ -108,7 +107,6 @@ public class AddAppointment extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
                 data.setDoctor(item);
             }
 

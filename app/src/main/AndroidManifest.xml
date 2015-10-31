@@ -36,6 +36,7 @@
         </activity>
         <activity
             android:name=".emal_symptoms"
+            android:parentActivityName=".MainActivity"
             android:label="Share Symptoms With Doctor"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
