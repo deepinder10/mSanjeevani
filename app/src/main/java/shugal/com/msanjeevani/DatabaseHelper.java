@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    private static DatabaseHelper sInstance;
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
@@ -39,12 +40,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // doctor
     private static final String KEY_DATE = "date";
     private static final String KEY_TIME = "time";
+    private static final String KEY_STATUS = "status";
 
 
     // Hospital Database
     //hospital name
     private static final String KEY_ADDRESS = "date";
     private static final String KEY_PHONE = "phone";
+
+    public static synchronized DatabaseHelper getInstance(Context context) {
+
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null) {
+            sInstance = new DatabaseHelper(context.getApplicationContext());
+        }
+        return sInstance;
+    }
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -67,7 +80,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_HOSPITAL + " string, " +
                 KEY_DOCTOR + " string, " +
                 KEY_DATE + " string, " +
-                KEY_TIME + " string);";
+                KEY_TIME + " string, " +
+                KEY_STATUS + " string);";
 
         db.execSQL(query);
 
@@ -79,7 +93,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(query);*/
 
-        db.close();
     }
 
     @Override
@@ -102,10 +115,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_DOCTOR, data.getDoctor());
         values.put(KEY_DATE, data.getDate());
         values.put(KEY_TIME, data.getTime());
+        values.put(KEY_STATUS, data.getStatus());
         db.insert(TABLE_APPOINTMENTS, null, values);
 
         db.close();
     }
+
 
     public ArrayList<AppointmentData> showAppointments() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -123,6 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 data.setDoctor(cursor.getString(5));
                 data.setDate(cursor.getString(6));
                 data.setTime(cursor.getString(7));
+                data.setStatus(cursor.getString(8));
                 tdata.add(data);
             } while (cursor.moveToNext());
         }
@@ -149,24 +165,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+    public void addDoctor(DoctorData data) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_DOCTOR, data.getName());
+        values.put(KEY_HOSPITAL, data.getHospital());
+        db.insert(TABLE_DOCTORS, null, values);
+    }
 
+    public ArrayList<String> doctorByHospital(String hospital) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> tdata = new ArrayList<>();
+        String query = "Select " + KEY_DOCTOR + " from " + TABLE_DOCTORS + " where " + KEY_HOSPITAL + "=" + "\"" + hospital + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DoctorData data = new DoctorData();
+                data.setName(cursor.getString(0));
+                String name = data.getName();
+                tdata.add(name);
+            } while (cursor.moveToNext());
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        db.close();
+        return tdata;
+    }
 
     public void deleteFirstValues() {
         SQLiteDatabase db = this.getWritableDatabase();

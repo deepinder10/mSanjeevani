@@ -28,4 +28,8 @@ public class AppointmentsActivity extends AppCompatActivity {
     public void addApointment(View view) {
         startActivity(new Intent(this, AddAppointment.class));
     }
+
+    public void listAppointment(View view) {
+        startActivity(new Intent(this, AppointmentList.class));
+    }
 }

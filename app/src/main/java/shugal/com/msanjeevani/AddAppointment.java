@@ -27,6 +27,7 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AddAppointment extends AppCompatActivity {
@@ -70,6 +71,9 @@ public class AddAppointment extends AppCompatActivity {
         dateTxt.addTextChangedListener(new MyTextWatcher(dateTxt));
         timeTxt.addTextChangedListener(new MyTextWatcher(timeTxt));
 
+        male = (RadioButton) findViewById(R.id.male);
+        female = (RadioButton) findViewById(R.id.female);
+
         fillSpinners();
     }
 
@@ -82,7 +86,16 @@ public class AddAppointment extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
                 Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+
+                DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+
+                ArrayList<String> doctorNames = db.doctorByHospital(item);
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                        android.R.layout.simple_spinner_dropdown_item, doctorNames);
+                doctorSpinner.setAdapter(arrayAdapter);
                 data.setHospital(item);
+                db.close();
             }
 
             @Override
@@ -132,7 +145,13 @@ public class AddAppointment extends AppCompatActivity {
         }
 
         data.setPatient_name(nameTxt.getText().toString());
-        data.setAge(Integer.parseInt(ageTxt.getText().toString()));
+        int age = Integer.parseInt(ageTxt.getText().toString());
+        data.setAge(age);
+        if (age % 2 == 0) {
+            data.setStatus("Confirmed");
+        } else {
+            data.setStatus("Cancelled");
+        }
         data.setDate(dateTxt.getText().toString());
         data.setTime(timeTxt.getText().toString());
 
@@ -141,12 +160,12 @@ public class AddAppointment extends AppCompatActivity {
         } else if (female.isChecked()) {
             data.setGender("Female");
         }
-        //DatabaseHelper db = new DatabaseHelper(this);
+        DatabaseHelper db = new DatabaseHelper(this);
+        db.addAppointment(data);
         //data.setLecture_number(Integer.parseInt(lectureNumber.getText().toString()));
         //db.addTimetableSlot(data);
         //db.close();
         launchStatusDialog();
-        finish();
     }
 
     @Override
@@ -208,14 +227,15 @@ public class AddAppointment extends AppCompatActivity {
 
         final AlertDialog.Builder customEventDialog = new AlertDialog.Builder(context);
 
-        customEventDialog.setTitle("Delete Everything ?");
+        customEventDialog.setTitle("Details saved, please Check status");
         customEventDialog.setCancelable(true);
 
-        customEventDialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+        customEventDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //startActivity(new Intent(getApplicationContext(), ));
-                Toast.makeText(context, "Go to application list", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), AppointmentList.class));
+                finish();
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override

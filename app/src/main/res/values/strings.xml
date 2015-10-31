@@ -11,5 +11,8 @@
     <string name="title_activity_hospital_list">HospitalListActivity</string>
     <string name="title_activity_activity_appointments">activity_appointments</string>
     <string name="title_activity_appointments">appointments</string>
+    <string name="err_msg_wt">Enter your Weight</string>
+    <string name="err_msg_ht">Enter your Height</string>
     <string name="title_activity_add_appointment">AddAppointment</string>
+    <string name="title_activity_appointment_list">AppointmentList</string>
 </resources>

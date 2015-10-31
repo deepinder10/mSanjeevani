@@ -12,6 +12,7 @@ public class AppointmentData {
     private String doctor;
     private String date;
     private String time;
+    private String Status;
 
     public AppointmentData() {
 
@@ -31,6 +32,7 @@ public class AppointmentData {
         this.doctor = doctor;
         this.date = date;
         this.time = time;
+        this.Status = "Cancelled";
     }
 
     public int getAge() {
@@ -95,5 +97,13 @@ public class AppointmentData {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 }

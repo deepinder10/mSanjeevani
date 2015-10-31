@@ -44,18 +44,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-        //createDummyDatabase();
-    }
-
-    private void createDummyDatabase() {
-
-        AppointmentData data = new AppointmentData("1", 1, "a", "a", "a", "a", "a");
-        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
-        db.addAppointment(data);
-
-        db.deleteFirstValues();
-        db.close();
     }
 
     @Override
@@ -99,5 +87,9 @@ public class MainActivity extends AppCompatActivity
 
     public void hospitalList(View view) {
         startActivity(new Intent(this, HospitalListActivity.class));
+    }
+
+    public void bmiActivity(View view) {
+        startActivity(new Intent(this,Bmi_index.class));
     }
 }
