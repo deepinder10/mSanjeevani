@@ -8,6 +8,11 @@
             android:icon="@android:drawable/ic_menu_camera"
             android:title="Appointments" />
 
+        <item
+            android:id="@+id/email"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:title="Share Symptoms With Doctor" />
+
 
     </group>
 

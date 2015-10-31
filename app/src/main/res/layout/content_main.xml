@@ -17,34 +17,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="First aid"
+            android:src="@drawable/fabx128"
+
             android:textStyle="italic|bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textSize="30sp"
             android:onClick="firstAidActivity"
             android:layout_marginRight="5dp"
-            android:background="#fff7f47d" />
+            android:layout_marginBottom="5dp"
+            android:background="#FF9800" />
 
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="First Aid Tips"
+            android:src="@drawable/fabx128"
             android:textStyle="italic|bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textSize="30sp"
             android:onClick="firstAidTips"
             android:layout_marginLeft="5dp"
-            android:background="#81d4fa" />
+            android:layout_marginBottom="5dp"
+            android:background="#FFEB3B" />
 
     </LinearLayout>
 
@@ -53,18 +55,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="bmiActivity"
-            android:text="Body Mass Index"
+            android:src="@drawable/fabx128"
             android:textStyle="italic|bold"
+            android:onClick="bmiActivity"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textSize="30sp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
-            android:background="#81d4fa" />
+            android:background="#4CAF50" />
 
     </LinearLayout>
 
@@ -74,29 +77,31 @@
         android:orientation="horizontal"
         android:layout_weight="1">
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
-            android:text="C P R"
+            android:layout_marginTop="5dp"
+           android:src="@drawable/fabx128"
             android:onClick="cprActivity"
             android:textStyle="italic|bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textSize="30sp"
-            android:background="#ff66e06c" />
+            android:background="#2196F3" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:onClick="hospitalList"
-            android:text="Hospitals"
+            android:src="@drawable/fabx128"
             android:textStyle="italic|bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textSize="30sp"
-            android:background="#f44336" />
+            android:background="#3F51B5" />
 
     </LinearLayout>
 

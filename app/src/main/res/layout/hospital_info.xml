@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <shugal.com.msanjeevani.Views.FontTextView
+        style="@style/TextView.Nickname"
+        android:id="@+id/nickname" />
+
+    <shugal.com.msanjeevani.Views.FontTextView
+        style="@style/TextView.Address"
+        android:id="@+id/address"
+        android:layout_below="@+id/nickname"/>
+
+    <shugal.com.msanjeevani.Views.FontTextView
+        style="@style/TextView.Phone"
+        android:id="@+id/phone"
+        android:layout_below="@+id/address"/>
+</RelativeLayout>

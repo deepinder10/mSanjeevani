@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.appointments) {
             // Handle the camera action
             startActivity(new Intent(this, AppointmentsActivity.class));
+        } else if (id == R.id.email) {
+            startActivity(new Intent(this, emal_symptoms.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

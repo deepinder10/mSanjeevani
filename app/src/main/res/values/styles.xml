@@ -33,16 +33,14 @@
 
     <style name="TextView.Address" parent="TextView">
         <item name="android:textSize">25sp</item>
-        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginLeft">20dp</item>
     </style>
 
     <style name="TextView.Phone" parent="TextView">
         <item name="android:textSize">20sp</item>
-        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginLeft">20dp</item>
     </style>
-
-
 
 </resources>
